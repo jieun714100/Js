@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*객체 (Object)
+        - 관련있는 데이터를 하나로 담을 수 있는 객체
+        - 파이썬의 딕셔너리와 유사
+        - { } 로 감싼다.
+        - { 키(key) : 값(value)}으로 표현
+        - 키 : 문자열만 올 수 있다(숫자 입력시 문자로 바뀜(정확하게 나오지 않을수도있음)). 유일해야 한다. 
+        - 값 : 거의 모든 데이터의 타입 가능(문자열, 숫자, 배열, 객체, boolean...)
+        - 객체는 순서를 보장하지 않는다. (처음으로 넣어도 마지막에 나올수도 있다)(ES6이후 어느정도는 보장)
+
+        */
+
+        let student = {
+            name: "공은성",
+            age: 17,
+            phone: "010-1111-2222",
+            address: "서울시 관악구",
+            number: 2301,
+            hobby: ["게임", "잠", "헬스"],
+
+        }
+        console.log(student);
+
+        let person = {
+            111: "111",
+            222: "222",
+        }
+        console.log(person)
+
+        //1. 객체의 키값을 가져오기 => Object.keys()
+        let keys = Object.keys(person); //배열로 return
+        console.log(keys)
+        console.log(keys[0], keys[1]) //111 222
+        console.log(keys[0] + keys[1]) //111222
+
+        //2. 객체의 값을 가져오기 => .
+        let name = student.name //변수명이 같다
+        //변수 scope : {}안에서 선언 했다면 {}내에서만 ~> 같은 변수명을 사용할 수 있다
+        //var만 {}안에 선언해도 밖에서도 영향을 준다
+        console.log(name);
+
+        //3. 객체의 값을 변경하기 => 키로 불러서 할당 (easy)
+        student.age = 27;
+        console.log(student)
+
+        //4. 객체의 키와 값을 추가하기 => 그냥 키를
+        student.gender = "남성"
+        console.log(student)
+    </script>
+</body>
+
+</html>
