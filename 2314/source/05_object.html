@@ -15,7 +15,7 @@
         - { } 로 감싼다.
         - { 키(key) : 값(value)}으로 표현
         - 키 : 문자열만 올 수 있다(숫자 입력시 문자로 바뀜(정확하게 나오지 않을수도있음)). 유일해야 한다. 
-        - 값 : 거의 모든 데이터의 타입 가능(문자열, 숫자, 배열, 객체, boolean...)
+        - 값 : 거의 모든 데이터의 타입 가능(문자열, 숫자, 배열, 객체, boolean, 함수...) > 객체로 인식
         - 객체는 순서를 보장하지 않는다. (처음으로 넣어도 마지막에 나올수도 있다)(ES6이후 어느정도는 보장)
 
         */
@@ -45,6 +45,7 @@
 
         //2. 객체의 값을 가져오기 => .
         let name = student.name //변수명이 같다
+
         //변수 scope : {}안에서 선언 했다면 {}내에서만 ~> 같은 변수명을 사용할 수 있다
         //var만 {}안에 선언해도 밖에서도 영향을 준다
         console.log(name);
@@ -56,6 +57,16 @@
         //4. 객체의 키와 값을 추가하기 => 그냥 키를
         student.gender = "남성"
         console.log(student)
+
+        //5. !!중요!! => 실시간으로 특정 키에 접근해야 하는 경우
+        console.log(student.name);
+        console.log(student["name"]);
+
+        let userInput = prompt(
+            "알고싶은 내용은?(name, age, hobby, number, phone, address)"
+        );
+        //console.log(userInput)
+        console.log(student["userInput"])
     </script>
 </body>
 
