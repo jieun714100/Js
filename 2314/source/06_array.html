@@ -28,6 +28,7 @@
         console.log(str.length);
         console.log(mix.length);
 
+
         console.log(mix[4]);
         console.log(mix[3]);
 
@@ -47,18 +48,74 @@
         console.log(mix);
         console.log(mix.pop())
         console.log(mix);
+        console.log(mix.pop())
+        console.log(mix);
+
+        mix.push(4.5);
+        console.log(mix);
+        mix.push({ name: "공은성" });
+        console.log(mix);
+        mix.push(["a", "b"]);
+        console.log(mix);
 
         console.log(mix.push('{name : "공은성"}'));
+
+        //4. 배열의 특정 요소를 수정
+        console.log("여기")
+        mix[2] = 100;
+        //console.log(mix)
+        mix[2] = null; //100을 null로 바꾸기 - 100지우기
+        console.log(mix)
+        //delete (mix[2]) //2번 인덱스 삭제
+        console.log(mix)
+        //delete mix[2]; //2번 인덱스 비우기
 
         /*3. 활용
         - object와 함께 사용
         - 예를 들어 우리가 개발한 웹사이트에서 사용자 목록을 가져와 처리를 한다고 가정하자,
         json에서 날아와서 맵핑
         */
-        let userList = [{}, {}, {}]; //선언만 하고 할당 x
-        console.log(userList.length);
-        userList[0]; //첫번째 고객
-        console.log([1].name); //두번째 고객의 이름
+        // let userList = [{}, {}, {}]; //선언만 하고 할당 x
+        // console.log(userList.length);
+        // userList[0]; //첫번째 고객
+        // console.log([1].name); //두번째 고객의 이름
+
+
+        // let a = [];
+        // console.log(a); // Array(0)
+        // console.log(a.length); // 0
+        // //배열에 값이 없으면 undefined가 아닌 0이 나온다
+
+        let userList = [{
+            name: "정국",
+            gender: "남자",
+            email: "jung@gmail.com",
+            phone: "000-1111-1111",
+        }, {
+            name: "뷔",
+            gender: "남자",
+            email: "vui@gmail.com",
+            phone: "000-2222-1111",
+        }, {
+            name: "로제",
+            gender: "여자",
+            email: "rose@gmail.com",
+            phone: "000-3333-1111",
+        }]
+
+        console.log(userList);
+        console.log(userList[2].phone); //로제 전화번호 출력
+
+        let who = prompt("누구의 전화번호를 알고싶나요?");
+        console.log(who);
+
+        if (who === "정국") {
+            console.log(userList[0].phone);
+        } else if (who === "뷔") {
+            console.log(userList[1].phone);
+        } else if (who === "로제") {
+            console.log(userList[2].phone);
+        }
 
     </script>
 
