@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 할당 연산자(산술 - 이항(항이 2개))
+        let x = 1;
+        let y = 3;
+
+        x = x + y;
+        console.log(y); //3
+        console.log(x); //4
+        x = x - y;
+        console.log(x); //1 (: 4-3)
+        x = x * y;
+        console.log(y); //3
+        x = x / y;
+        console.log(x); //1
+        x = 2;
+        y = 3;
+        x = x % y;
+        console.log(x); //2
+        x = x ** y;
+        console.log(x); //8
+
+        //2. 복합할당연산자
+        x = 3;
+        y = 5;
+
+        console.log((x += y)); //3 + 5 = 8 ,8
+        console.log((x -= y)); // 8 - 5 = 3 ,3
+        console.log((x *= y)); // 3 * 5 = 15 ,15
+        console.log((x /= y)); //15 / 5 = 3 ,3
+        console.log((x %= y)); //3 % 5 = 3 ,3
+
+
+
+
+    </script>
+</body>
+
+</html>
