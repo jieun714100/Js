@@ -128,7 +128,7 @@
         //활용 : 90점 이상이면 "A" 80점 이상이면 "B" 
         //70점 이상이면 "C" 60점 이상이면 "D" 나머지는 "E"
 
-        let score = prompt("점수 입력");
+        let score = prompt("점수 입력"); //+가 없어도 js가 문자열과 숫자를 비교해줄 수 있음
         let grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "E";
         console.log("등급 : ", grade);
 

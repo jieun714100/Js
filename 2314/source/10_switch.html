@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //switch : 상수값을 비교
+        /*switch(상수){
+            case :구문; (break;)
+        }
+
+        */
+        //Date() 객체 : 날짜와 시간을 다루는 객체
+        // const d = new Date(); //new생성자, 인스턴스 객체 d
+        // console.log(d)
+        // const dayNumber = d.getDay()
+        // console.log(dayNumber) //요일을 0~6까지 출력해줌 - 3 => 수요일
+
+        //요일을 출력하는switch코드 작성
+        // let output;
+
+        // switch (dayNumber) {
+        //     case 0: output = "일요일"; break;
+        //     case 1: output = "월요일"; break;
+        //     case 2: output = "화요일"; break;
+        //     case 3: output = "수요일"; break;
+        //     case 4: output = "목요일"; break;
+        //     case 5: output = "금요일"; break;
+        //     default: output = "토요일"; break;
+
+        // }
+        // console.log("오늘의 요일 : ", output)
+
+        let day = ["일", "월", "화", "수", "목", "금", "토"]
+        console.log("오늘의 요일 : ", day[new Date().getDay()], "요일")
+    </script>
+</body>
+
+</html>
