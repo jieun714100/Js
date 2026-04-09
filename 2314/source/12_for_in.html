@@ -39,6 +39,9 @@
             if (key === input) {
                 console.log(input, ":", person[key])
                 break
+            }else if(input === ""){
+                console.log("값을 입력하세요.")
+                break
             }else{
                 console.log("존재하지 않는 키입니다.")
             }
