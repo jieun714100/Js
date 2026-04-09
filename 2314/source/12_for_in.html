@@ -31,7 +31,19 @@
         for (const key in person) {
             console.log(key, ":", person[key])
         }
-    </script>
+
+        console.log("====================================") 
+        // 12_for_in.html에서 알고 싶은 키를 입력(prompt)받고, 키에 대한 값을 출력하는 코드(빈칸, 존재하지 않는 키 확인 ) 
+        let input = prompt("알고 싶은 키 : ")
+        for (const key in person) {
+            if (key === input) {
+                console.log(input, ":", person[key])
+                break
+            }else{
+                console.log("존재하지 않는 키입니다.")
+            }
+        }
+        </script>
 </body>
 
 </html>
