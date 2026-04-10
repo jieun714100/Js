@@ -32,21 +32,35 @@
             console.log(key, ":", person[key])
         }
 
-        console.log("====================================") 
+        console.log("====================================")
         // 12_for_in.html에서 알고 싶은 키를 입력(prompt)받고, 키에 대한 값을 출력하는 코드(빈칸, 존재하지 않는 키 확인 ) 
         let input = prompt("알고 싶은 키 : ")
         for (const key in person) {
             if (key === input) {
                 console.log(input, ":", person[key])
                 break
-            }else if(input === ""){
+            } else if (input === "") {
                 console.log("값을 입력하세요.")
                 break
-            }else{
+            } else {
                 console.log("존재하지 않는 키입니다.")
             }
         }
-        </script>
+
+        let userinput = prompt("키를 입력하세요 : ");
+        if (userinput) {
+            console.log("키를 입력해야 합니다.")
+        } else {
+            for (const key in person) {
+                if (userinput === key) {
+                    console.log(userinput, ":", person[userinput])
+                    break;
+                } else {
+                    console.log("적합한 키를 입력해주세요")
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
