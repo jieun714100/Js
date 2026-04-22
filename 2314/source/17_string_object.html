@@ -71,13 +71,54 @@
             substr : 인덱스가 아닌 글자 수를 기준으로 하지만 현재 웹표준으로 권장하지 않는다.(사형선고)*/
 
         //7. replace(문자열1, 문자열2) : 문자열1을 문자열2로 교체하는 함수
+        //str은 변하지 않는다
         str = "Welcome Jeju! Jeju";
         console.log(str.replace("Jeju", "Seoul"))
 
-        //과제
+        //과제 => replaceAll 사용하지 말고 Jeju => Seoul (반복문)
+
+        //8. **toUpperCase() : 대문자로 변환
+        //9. **toLowerCase() : 소문자로 변환
+        //사용자는 다양하게 입력하게 되므로... 입력된 내용을 대(소)문자로 변환하면된다
+        //제품번호 포맷 : 영어대문자제조연월일코드 => M260422DEF
+        //m260422DEF m260422def
+
+        str = "Welcome Jeju! Jeju";
+        console.log(str.toUpperCase()) //WELCOME JEJU! JEJU
+        console.log(str.toLowerCase()) //welcome jeju! jeju
 
 
+        //10. concat(): 문자열 합치기, 문자열의 갯수는 제한이 없다
+        let firstName = "John";
+        let lastName = "Doe";
+        let fullName = firstName.concat(" ", lastName, "!~~ ", "Welcome");
+        console.log(fullName)
 
+
+        //11. trim() : 문자열의 앞, 뒤 공백을 없애기
+        let name = "               에이스???   2학년 3반           "
+        console.log(name.trim()) //에이스???   2학년 3반
+
+        //12. *****padStart(문자열 전체 길이, 앞에 채울 문자열)
+        //현업에서 가장 많이 사용하고 중요하다. => 동일한 내용을 자스코드로 작성하면 매우 길다
+        //월을 2자리로 출력 => 04월, 12월, 01월 ...
+
+        let today = new Date();
+        let month = today.getMonth();
+
+        if (+month.length < 2) {
+            month.concat("0")
+            console.log("0", month, "월")
+        } else {
+            console.log(month, "월")
+
+        }
+
+        //13. ************split() : 파라미터로 전달받은 문자열을 기준으로 문자열을 쪼갠다.
+        //결과는 배열로 반환한다. 현업에서 가장 많이 사용하고 중요하다.
+        let jsonEx = "john@gamil.com, lee@gmail.com, kim@hanmail.com";
+        let result = jsonEx.split(",")
+        console.log(result) //['john@gamil.com', ' lee@gmail.com', ' kim@hanmail.com']
 
     </script>
 </body>
