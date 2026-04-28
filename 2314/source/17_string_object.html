@@ -76,6 +76,9 @@
         console.log(str.replace("Jeju", "Seoul"))
 
         //과제 => replaceAll 사용하지 말고 Jeju => Seoul (반복문)
+        console.log("replaceAll() 사용하지 말고 Jeju => Seoul (반복문)")
+        let newstr = str.replace(/Jeju/g, "Seoul"); 
+        console.log(newstr)
 
         //8. **toUpperCase() : 대문자로 변환
         //9. **toLowerCase() : 소문자로 변환
