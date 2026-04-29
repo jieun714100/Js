@@ -77,7 +77,7 @@
 
         //과제 => replaceAll 사용하지 말고 Jeju => Seoul (반복문)
         console.log("replaceAll() 사용하지 말고 Jeju => Seoul (반복문)")
-        let newstr = str.replace(/Jeju/g, "Seoul"); 
+        let newstr = str.replace(/Jeju/g, "Seoul");
         console.log(newstr)
 
         //8. **toUpperCase() : 대문자로 변환
@@ -117,12 +117,48 @@
 
         }
 
-        //13. ************split() : 파라미터로 전달받은 문자열을 기준으로 문자열을 쪼갠다.
+
+        //13. padEnd(문자열 전체길이, 뒤에 채울 문자열)
+        let stNumber = "2318";
+        //학생일 경우 학번 뒤에 "s"를 붙이자 
+        console.log(stNumber.padEnd(5, "s")); // 2318s
+
+        //14. ***charAt(인덱스) : 인덱스에 해당하는 한 글자만 리턴
+        stNumber = "s2318";
+        //s로 시작하면 학생이다
+        if (stNumber.charAt(0).toLowerCase === "s") {
+            console.log("학생입니다");
+        }
+
+        //15. charCodeAt(인덱스) : 인덱스에 해당하는 글자의 유니코드를 리턴
+        //유니코드 한글 첫 글자 : 가 / 마지막 글자 : 힣
+        str = "A"
+        console.log(str.charCodeAt(0));
+        str = "가힣"
+        console.log(str.charCodeAt(0)); //44032
+        console.log(str.charCodeAt(1)); //55203
+
+
+        // 16.************split() : 파라미터로 전달받은 문자열을 기준으로 문자열을 쪼갠다.
         //결과는 배열로 반환한다. 현업에서 가장 많이 사용하고 중요하다.
         let jsonEx = "john@gamil.com, lee@gmail.com, kim@hanmail.com";
         let result = jsonEx.split(",")
         console.log(result) //['john@gamil.com', ' lee@gmail.com', ' kim@hanmail.com']
 
+        //17.****startsWith() : 파라미터로 시작하는지 여부를 boolean으로 리턴
+        //https:// 여부에 따라 유효한지 여부를 출력
+        let url = "website.com";
+        if (url.startsWith("https")) {
+            console.log("유효")
+        } else {
+            console.log("유효하지않음")
+        }
+
+        //18.****endsWith() : 파라미터로 끝나는지 여부를 boolean으로 리턴
+        console.log(url.endsWith("com")) //true
+        if (url.endsWith("com")) {
+            console.log("회사")
+        }
     </script>
 </body>
 
