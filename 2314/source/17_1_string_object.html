@@ -47,8 +47,64 @@
 
 
         //12. padStart() 실무 활용 예제
+        //앞자리 마스킹, 카드 번호(16)를 db에서 읽어와 뒷자리 4자리만 보여주고자 할 경우
+        const cardNumber = "7654";
+        const maskCardNumber = cardNumber.padStart(16, "*");
+        console.log(maskCardNumber)
+
         //14. charAt() 실무 활용 예제
+        //주민등록 번호 뒷자리의 첫글자를 이용해 성별을 확인
+        //091015-305865, 1,3(내국인 남성)/2,4(내국인 여성)/5,7(돠국인 남성)/6,8(외국인 여성)
+        const chekGender = (sn) => {
+            const cleanSn = sn.replace(/\D/, "");
+            let gender = "";
+            const genderCode = cleanSn.charAt(6);
+            if (genderCode == 1 || genderCode == 3) {
+                gender = "내국인 남성";
+            } else if (genderCode == 2 || genderCode == 4) {
+                gender = "내국인 여성";
+            } else if (genderCode == 5 || genderCode == 7) {
+                gender = "외국인 남성";
+            } else if (genderCode == 6 || genderCode == 8) {
+                gender = "외국인 여성";
+            }
+            return gender;
+        }
+        console.log(chekGender("091015-3058463")) //내국인 남성
+        console.log(chekGender("091125-4058463")) //내국인 여성
+
+        //16. split() 실무 활용 예제
+        const url = "https://myshop.com/products/electronics/iphone15";
+        const pageSegment = url.split("/");
+        console.log(pageSegment);
+        let size = pageSegment.length
+        console.log(`카테고리 : ${pageSegment[size - 2]}`);
+        console.log(`제품명 : ${pageSegment[size - 1]}`);
+
+
+
+        //*********************************로그 파일 내용 가져오기*******************************
+        //접근 허용이 안 되는 사용자의 로그 기록
+        const csvData = "2026-04-29,Login_Succ,user_01\n2024-04-29,Login_Fail_user_02"
+        const lagData = csvData.split("\n");
+        console.log(lpgData)
+        for (line of logaData) {
+            [data, status, user] = line.split("*"); //배열 구조 분해 할당************************
+
+            if (status === "Login_Fail") {
+                console.log(`${user}가 ${data}에 로그인 실패했습니다.`)
+            }
+        }
+
         //18. endsWith() 실무 활용 예제
+        //파일 업로드시 jpg, png만 가능
+        const fileNameCheck = (fileName) => {
+            let lowfile = fileNameCheck.tolowercase
+            if (fileName = lowfile.endsWith("jpq" || "png"))
+        };
+        console.log(fileNameCheck("aaa.JPG"));
+        console.log(fileNameCheck("bbb.gif"));
+
     </script>
 </body>
 
