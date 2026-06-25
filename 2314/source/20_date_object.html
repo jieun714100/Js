@@ -70,11 +70,14 @@
 
 
         //6. 오늘을 기준으로 1주일 전을 id="startDate"에 출력해보기
-        let sevenbefore = new Date(todayMilliSec - (dayMilliSec * 7));
-        console.log(sevenbefore);
-        document.getElementById("startDate").value = sevenbefore;
+        // 오늘 기준 1주일 전
+        let lastWeek = new Date(todayMilliSec - (dayMilliSec * 7));
+
+        document.getElementById("startDate").value =
+        lastWeek.toISOString().split("T")[0];
 
         //오늘 기준으로 며칠 전후를 구하는 함수 : getIntervalDate()
+        let 
 
 
     </script>
