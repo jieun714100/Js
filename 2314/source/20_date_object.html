@@ -25,6 +25,7 @@
 
 
         //get()함수 : now
+        //데이터 타입 : number =>toString
         let year = now.getFullYear();
         let month = now.getMonth();
         let date = now.getDate();
@@ -33,8 +34,9 @@
         let minute = now.getMinutes();
         let second = now.getSeconds();
         let millisec = now.getMilliseconds();
+        let dayNameArr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
 
-        console.log(year, month, date, dayName, hour, minute, second, millisec);
+        console.log(year, month + 1, date, dayNameArr[dayName], hour, minute, second, millisec); //026 6 26 '금요일' 8 44 14 430
 
 
         //4. set()함수 => 실무 사용 거의 x
@@ -60,7 +62,7 @@
         console.log(standard);
 
         let todayMilliSec = now.getTime();
-        console.log(todayMilliSec);
+        console.log(todayMilliSec); //1782430912213
 
         let dayMilliSec = 24 * 60 * 60 * 1000;
         console.log(dayMilliSec)//86400000 (하루 밀리초)
@@ -72,12 +74,47 @@
         //6. 오늘을 기준으로 1주일 전을 id="startDate"에 출력해보기
         // 오늘 기준 1주일 전
         let lastWeek = new Date(todayMilliSec - (dayMilliSec * 7));
+        console.log(lastWeek)//Fri Jun 19 2026 08:47:12 GMT+0900 (한국 표준시) -> 저번주
+        year = lastWeek.getFullYear();
+        month = lastWeek.getMonth();
+        date = lastWeek.getDate();
 
-        document.getElementById("startDate").value =
-        lastWeek.toISOString().split("T")[0];
+        lastWeek =
+            year.toString() +
+            "-" +
+            (month + 1).toString().padStart(2, "0") +
+            "-" +
+            date.toString().padStart(2, "0");
 
-        //오늘 기준으로 며칠 전후를 구하는 함수 : getIntervalDate()
-        
+        document.getElementById("startDate").value = lastWeek; //startdate부분에 6-19 가 뜬다
+
+
+        //오늘 기준으로 며칠 전(-n) 후(n)를 구하는 함수 : getIntervalDate()
+        const getIntervalDate = ((day) => {
+            let now = new Date();
+
+            let year = now.getFullYear();
+            let month = now.getMonth();
+            let date = now.getDate();
+            let dayName = now.getDay();
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+            let millisec = now.getMilliseconds();
+            let dayNameArr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+            let dayMilliSec = 24 * 60 * 60 * 1000;//하루 밀리초
+
+            let intervalDay = now.getTime() + day * dayMilliSec;
+            return new Date(intervalDay);
+
+
+        });
+
+        console.log(`3일전 : ${getIntervalDate(-3)}`) //3일 전 : 6/23
+        console.log(`3일전 : ${getIntervalDate(-7)}`) //7일 전 : 6/19
+        console.log(`3일전 : ${getIntervalDate(30)}`) //30일 후 : 5/25
+        console.log(`3일전 : ${getIntervalDate(3)}`) //3일 후 : 6/29
+
 
 
     </script>
