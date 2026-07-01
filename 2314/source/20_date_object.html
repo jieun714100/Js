@@ -89,33 +89,52 @@
         document.getElementById("startDate").value = lastWeek; //startdate부분에 6-19 가 뜬다
 
 
-        //오늘 기준으로 며칠 전(-n) 후(n)를 구하는 함수 : getIntervalDate()
+        //7. 오늘 기준으로 며칠 전(-n) 후(n)를 구하는 함수 : getIntervalDate()
         const getIntervalDate = ((day) => {
-            let now = new Date();
-
-            let year = now.getFullYear();
-            let month = now.getMonth();
-            let date = now.getDate();
-            let dayName = now.getDay();
-            let hour = now.getHours();
-            let minute = now.getMinutes();
-            let second = now.getSeconds();
-            let millisec = now.getMilliseconds();
-            let dayNameArr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+            let today = new Date();
             let dayMilliSec = 24 * 60 * 60 * 1000;//하루 밀리초
-
-            let intervalDay = now.getTime() + day * dayMilliSec;
+            let intervalDay = today.getTime() + day * dayMilliSec;
             return new Date(intervalDay);
-
-
         });
 
         console.log(`3일전 : ${getIntervalDate(-3)}`) //3일 전 : 6/23
         console.log(`3일전 : ${getIntervalDate(-7)}`) //7일 전 : 6/19
         console.log(`3일전 : ${getIntervalDate(30)}`) //30일 후 : 5/25
         console.log(`3일전 : ${getIntervalDate(3)}`) //3일 후 : 6/29
+        console.log(getIntervalDate(3))
 
 
+
+        //8. 내가 원하는 포맷으로 오늘 기준으로 며칠 전(-n) 후(n)를 구하는 함수
+        const getIntervalDateFormat = (day, format) => {
+            let today = new Date();
+            let dayMilliSec = 24 * 60 * 60 * 1000;//하루 밀리초
+            let intervalDay = today.getTime() + day * dayMilliSec;
+            let d = new Date(intervalDay);
+
+            let year8 = d.getFullYear();
+            let month8 = d.getMonth();
+            let date8 = d.getDate();
+
+            let calender =
+                year8.toString() + "-"
+                + (month8 + 1).toString().padStart(2, "0") + "-"
+                + date8.toString().padStart(2, "0");
+
+            if (format.length === 10) {
+                return calender;
+            } else if (format.length === 8) {
+                return calender.slice(2)
+            }
+
+        };
+
+        console.log(getIntervalDateFormat(-3, "YYYY-MM-DD")); //2026-06-28
+        console.log(getIntervalDateFormat(3, "YY-MM-DD")); //26-07-04
+
+
+        //9. 내가 원하는 구분자로 오늘 기준으로 며칠 전(-n) 후(n)를 구하는 함수
+        //10. 
 
     </script>
 
