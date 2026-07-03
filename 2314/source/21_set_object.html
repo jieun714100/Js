@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //다음은 좋아하는 음식을 단답형으로 경우
+        //사용자가 입력한 음식 종류를 배열 foods
+        let foods = ["치킨", "햄버거", "순대국", "제육", "초밥", "돈가스", "순대국"];
+
+        //1. 배열 => 동일한 요소 제거
+        let oFood = {};
+        for (const food of foods) {
+            oFood[food] = "";
+        }
+        console.log(oFood);
+        let uniqueFood = []
+        for (const key in oFood) {
+            uniqueFood.push(key);
+        }
+        console.log(uniqueFood)
+
+        //2. 배열에서 동일한 요소제거: 배열의 filter이용
+        let uniqueFood2 = [];
+        const foodsFilter = foods.filter((food, index) => {
+            if (index === foods.lastIndexOf(food)) {
+                return food;
+            }
+        });
+        console.log(foodsFilter);
+
+        foods = ["치킨", "햄버거", "순대국", "제육", "초밥", "돈가스", "순대국"];
+
+        //3. set
+        let foodSet = new Set();
+        foodSet.add("치킨");
+        foodSet.add("치킨");
+        foodSet.add("치킨");
+        foodSet.add("치킨");
+        foodSet.add("치킨");
+        foodSet.add("치킨");
+        console.log(foodSet)
+
+
+    </script>
+</body>
+
+</html>

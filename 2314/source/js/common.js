@@ -29,9 +29,9 @@ const taxAmount = (productPrice) => {
 // const sum3 = (n1, n2) => n1 + n2;
 // console.log(sum3(4, 5))
 
-const getIntervalDate = ((day) => {
+const getIntervalDate = (day) => {
   let today = new Date();
-  let dayMilliSec = 24 * 60 * 60 * 1000;//하루 밀리초
+  let dayMilliSec = 24 * 60 * 60 * 1000; //하루 밀리초
   let intervalDay = today.getTime() + day * dayMilliSec;
   return new Date(intervalDay);
-});
+};
