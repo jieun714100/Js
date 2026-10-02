@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //4. slice() 실무 활용 예제
+        //4-1. 긴 문자열을 일부만 잘라서 보여주고 나머지는 "..." 처리시
+        const longString =
+            "지난 11일부터 이틀간 이어진 삼성전자 노사 협상 사후조정이 최종 결렬된 가운데, 삼성전자가 “매우 유감스럽다”는 입장을 발표했다."
+        const truncateTitle = (title, maxLength) => {
+            if (title.length > maxLength) {
+                return title.slice(0, maxLength) + "....";
+            } else {
+                return title;
+            }
+        };
+        console.log(truncateTitle(longString, 15)) //지난 11일부터 이틀간 이어....
+
+        //4-2. 마스킹 : 개인정보를 안보이게 처리 
+        let phoneNumber = "010-1234-5678";
+        let hiddenNumber = "";
+        hiddenNumber = phoneNumber.slice(0, -4) + "****"
+        console.log(hiddenNumber); //010-1234-****
+        phoneNumber = "010-345-6789"
+        hiddenNumber = phoneNumber.slice(0, -4) + "****"
+        console.log(hiddenNumber); //010-345-****
+
+        //7. replace() 실무 활용 예제(with 정규식(regular expression))
+        //회원가입시 전화번호 010-1111-2222형식으로 입력 => db에 저장시 01011112222
+        /*정규식(regular expression) : 특정한 포맷을 만들어 내는 식
+        - /   /사이에 작성
+        - D : 숫자
+        - \ : not
+        - 옵션 : g => 모두(all)     i => 대소문자를 구분하지 않는다.
+        */
+        phoneNumber = "010-1234-5678"
+        let clearNumber = phoneNumber.replace(/\D/g, "");//숫자가 아닌것을 모두 replace
+        console.log(clearNumber) //01012345678
+        let str = "Welcome Jeju!! jeju";
+        console.log(str.replace(/Jeju/gi, "Seoul"));//대소문자 구분 없게 jeju를 seoul로
+
+
+        //12. padStart() 실무 활용 예제
+        //앞자리 마스킹, 카드 번호(16)를 db에서 읽어와 뒷자리 4자리만 보여주고자 할 경우
+        const cardNumber = "7654";
+        const maskCardNumber = cardNumber.padStart(16, "*");
+        console.log(maskCardNumber)
+
+        //14. charAt() 실무 활용 예제
+        //주민등록 번호 뒷자리의 첫글자를 이용해 성별을 확인
+        //091015-305865, 1,3(내국인 남성)/2,4(내국인 여성)/5,7(돠국인 남성)/6,8(외국인 여성)
+        const chekGender = (sn) => {
+            const cleanSn = sn.replace(/\D/, "");
+            let gender = "";
+            const genderCode = cleanSn.charAt(6);
+            if (genderCode == 1 || genderCode == 3) {
+                gender = "내국인 남성";
+            } else if (genderCode == 2 || genderCode == 4) {
+                gender = "내국인 여성";
+            } else if (genderCode == 5 || genderCode == 7) {
+                gender = "외국인 남성";
+            } else if (genderCode == 6 || genderCode == 8) {
+                gender = "외국인 여성";
+            }
+            return gender;
+        }
+        console.log(chekGender("091015-3058463")) //내국인 남성
+        console.log(chekGender("091125-4058463")) //내국인 여성
+
+        //16. split() 실무 활용 예제
+        const url = "https://myshop.com/products/electronics/iphone15";
+        const pageSegment = url.split("/");
+        console.log(pageSegment);
+        let size = pageSegment.length
+        console.log(`카테고리 : ${pageSegment[size - 2]}`);
+        console.log(`제품명 : ${pageSegment[size - 1]}`);
+
+
+
+        //*********************************로그 파일 내용 가져오기*******************************
+        //접근 허용이 안 되는 사용자의 로그 기록
+        const csvData = "2026-04-29,Login_Succ,user_01\n2024-04-29,Login_Fail_user_02"
+        const lagData = csvData.split("\n");
+        console.log(lpgData)
+        for (line of logaData) {
+            [data, status, user] = line.split("*"); //배열 구조 분해 할당************************
+
+            if (status === "Login_Fail") {
+                console.log(`${user}가 ${data}에 로그인 실패했습니다.`)
+            }
+        }
+
+        //18. endsWith() 실무 활용 예제
+        //파일 업로드시 jpg, png만 가능
+        const fileNameCheck = (fileName) => {
+            let lowfile = fileNameCheck.tolowercase
+            if (fileName = lowfile.endsWith("jpq" || "png"))
+        };
+        console.log(fileNameCheck("aaa.JPG"));
+        console.log(fileNameCheck("bbb.gif"));
+
+    </script>
+</body>
+
+</html>

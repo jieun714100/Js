@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="myFunction2(this)">클릭</button>
+    <select name="" id="" onchange="myFunction2(this)">
+        <option value="">A</option>
+        <option value="">B</option>
+        <option value="">C</option>
+    </select>
+    <script>
+        console.log(this)
+
+        function myfunction() {
+            console.log(this)
+        }
+        myfunction();
+
+        const myFunction2 = (param) => {
+            console.log(param)
+        }
+
+        let firstName = "Brad";
+        let lastName = "Pitt";
+
+
+        let person = {
+            firstName: "공",
+            lastName: "은성",
+            getFullName: function () {
+                return this.firstName + this.lastName;
+            }
+        }
+        console.log(person.getFullName()) // this 가 없으면- BradPitt/ 있다면 - 공은성
+    </script>
+</body>
+
+</html>

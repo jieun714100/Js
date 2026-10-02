@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const pwd = "0714"
+
+        function doDelete() {
+            let userInput = window.prompt("비밀번호 입력 : ")
+
+            if (pwd === userInp) {
+                if (confirm("정말 삭제할까요?")) {
+                    console.log("삭제")
+                } else {
+                    console.log("취소하였습니다")
+                }
+            } else {
+                window.alert("비밀번호 오류!")
+            }
+        }
+
+        const openNaver = () => {
+            window.open("https://naver.com")
+        }
+        setTimeout(function(){            
+            openNaver();
+        }, 3000)
+
+        const myInerval  = setInterval(()=>{
+            conso.log("2초마다 나온다")
+        }, 2000)
+
+        clearTimeout(myInerval)
+        clearTimeout(myTimeout)
+
+    </script>
+</body>
+
+</html>
